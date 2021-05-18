@@ -227,3 +227,67 @@ const speciesArray = [ {speciesName:'shark', numTeeth:50}, {speciesName:'dog', n
 // Write your code here:
 
 const sortSpeciesByTeeth = arr => arr.sort((speciesObj1, speciesObj2) => speciesObj1.numTeeth > speciesObj2.numTeeth)
+
+/*
+Write a function, findMyKeys(), that takes in an array of strings which may or may not contain 'keys'. If the keys are in the array, your function should return the index at which they can be found. If they’re not in the array, your function should return -1.
+
+const drawer = ['rubber bands', 'tape', 'old menus', 'batteries'];
+findMyKeys(drawer);
+// Should return -1
+You can use any technique you want to accomplish this task. Though, if you look, there’s a built-in method that will make pretty quick work of it.
+
+You can test your function when you’re ready by passing in the randomStuff array or by making your own array!
+
+
+*/
+
+const findMyKeys = arr => arr.findIndex(item => item === 'keys')
+
+// Const function = parameter => parameter.findIndex(element => element === 'what_you_want')
+
+/*
+Write a function, dogFactory(). It should:
+
+have 3 parameters: name, breed, and weight (in that order)
+expect name and breed to be strings
+expect weight to be a number
+return an object
+have each of those parameters as keys on the returned object returned with the values of the arguments that were passed in
+dogFactory('Joe', 'Pug', 27)
+// Should return { name: 'Joe', breed: 'Pug', weight: 27 }
+
+Add getters and setters for each of the three properties and change the property names to have an underscore prepended.
+
+*/
+
+const dogFactory = (name, breed, weight) => {
+    return {
+        _name: name,
+        _breed: breed,
+        _weight: weight,
+        get name () {
+            return this._name;
+        },
+        set name(newName) {
+            this._name = newName;
+        },
+        get breed() {
+            return this._breed;
+        },
+        set breed(newBreed) {
+            this._breed = newBreed;
+        },
+        get weight() {
+            return this._weight;
+        },
+        set weight(newWeight) {
+            this._weight = newWeight;
+        },
+        bark() {
+          return "ruff! ruff!";
+        },
+        eatTooManyTreats() {
+          return this._weight++
+        }
+    }
+}
