@@ -5,41 +5,24 @@ let overusedWords = ['really', 'very', 'basically'];
 let unnecessaryWords = ['extremely', 'literally', 'actually' ];
 
 let storyWords = story.split(' ');
-//console.log(storyWords);
 
-console.log(storyWords.length);
+let betterWords = [];
 
-let betterWords = storyWords.filter(word => {
-    return !unnecessaryWords.includes(word) // Basically, we return all the words that are not true. Includes evaluates to if an element is in or not
-});
+for (let j = 0; j < storyWords.length; j++) {
+    for (let i   = 0; i < overusedWords.length; i++) {
+        if (storyWords[j] === overusedWords[i]) {
+            continue;
+        } else {
+            if (betterWords[j] === storyWords[j]) {
+                continue;
+            } else {
+                betterWords.push(storyWords[j]);
+            }
+        }
+    }
+}  
 
-let overused = storyWords.filter(word => {
-    return overusedWords.includes(word); // get the total count of overused words
-})
-
-let really = 0;
-let very = 0;
-let basically = 0;
-
-for (word of storyWords) {
-        if (word === "really") {
-            really += 1;
-        } else if (word === "very") {
-            very += 1;
-        } else if (word === "basically") {
-            basically += 1
-        } 
-};
-
-console.log(`You used really ${really}, very ${very}, and basically ${basically} time.`);
-
-let sentences = 0;
-storyWords.forEach(word => {
-  if (word[word.length-1] === '.' || word[word.length-1] === '!') {
-    sentences+=1;
-  }
-});
-
-console.log(sentences)
 
 console.log(betterWords)
+console.log(storyWords.length)
+console.log(betterWords.length)
