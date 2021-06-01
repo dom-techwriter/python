@@ -22,12 +22,9 @@ const returnRandBase = () => {
        op1 = returnRandBase()
        op2 = returnRandBase()
        if (this.dna[index] === op1) {
-        // console.log(this.dna[index]);
-        // console.log(op2);
         this.dna[index] = op2;
-        // console.log(this.dna)
        } else {
-        this.dna[index] = op2;
+        this.dna[index] = op1;
        }
        },
        compareDNA(pAequor) {
@@ -51,24 +48,12 @@ const returnRandBase = () => {
             if (this.dna[i] === "G" || this.dna[i] === "C") {
                 cOrG += 1
             }
-            // console.log(cOrG)
        }
        const survive = ((cOrG / 15) * 100) >= 60 ? true : false;
        return survive
       }
     }
 }
-  
-  // console.log(pAequorFactory(5, mockUpStrand()));
-  
-  const something = pAequorFactory(5, mockUpStrand())
-  const something1 = pAequorFactory(5, mockUpStrand())
-
-  //console.log(something)
-  
-  //console.log(something.mutate())
-
-  //console.log(something.compareDNA(something1))
 
   console.log(something.willLikelySurvive())
 

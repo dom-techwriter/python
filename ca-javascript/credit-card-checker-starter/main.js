@@ -55,6 +55,7 @@ const findInvalidCards = (arr) => {
             invalid.push(card);
         }
     }
+    return invalid
 }
 
 findInvalidCards(batch);

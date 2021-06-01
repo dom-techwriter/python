@@ -13,22 +13,26 @@ let playerOneMoveOneType,
     playerOneWins,
     playerTwoWins;
 
-function setPlayerMoves(player, moveOneType, moveOneValue, moveTwoType,
-                        moveTwoValue, moveThreeType, moveThreeValue) {
-  if (!moveOneType || !moveOneValue || !moveTwoType || !moveTwoValue ||
-      !moveThreeType || !moveThreeValue) {
+function isValidMoveType(moveType) {
+  return (moveType === 'rock') ||
+         (moveType === 'paper') ||
+         (moveType === 'scissors');
+}
+
+function isValidMoveValue(moveValue) {
+  return (moveValue >= 1) && (moveValue <= 99);
+}
+
+function setPlayerMoves(player, moveOneType, moveOneValue, moveTwoType, moveTwoValue, moveThreeType, moveThreeValue) {
+  if (!moveOneType || !moveOneValue || !moveTwoType || !moveTwoValue || !moveThreeType || !moveThreeValue) {
     return;
   }
 
-  if (!isValidMoveType(moveOneType) ||
-      !isValidMoveType(moveTwoType) ||
-      !isValidMoveType(moveThreeType)) {
+  if (!isValidMoveType(moveOneType) || !isValidMoveType(moveTwoType) || !isValidMoveType(moveThreeType)) {
     return;
   }
 
-  if (!isValidMoveValue(moveOneValue) ||
-      !isValidMoveValue(moveTwoValue) ||
-      !isValidMoveValue(moveThreeValue)) {
+  if (!isValidMoveValue(moveOneValue) || !isValidMoveValue(moveTwoValue) || !isValidMoveValue(moveThreeValue)) {
     return;
   }
 
@@ -51,16 +55,6 @@ function setPlayerMoves(player, moveOneType, moveOneValue, moveTwoType,
     playerTwoMoveThreeType = moveThreeType;
     playerTwoMoveThreeValue = moveThreeValue;
   }
-}
-
-function isValidMoveType(moveType) {
-  return (moveType === 'rock') ||
-         (moveType === 'paper') ||
-         (moveType === 'scissors');
-}
-
-function isValidMoveValue(moveValue) {
-  return (moveValue >= 1) && (moveValue <= 99);
 }
 
 function getRoundWinner(roundNumber) {
